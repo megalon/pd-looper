@@ -1,6 +1,6 @@
 #N canvas 519 22 799 728 12;
 #X obj 111 681 dac~;
-#X obj 192 318 adc~;
+#X obj 167 340 adc~;
 #X obj 233 410 hsl 128 15 0 1 0 0 empty empty VOLUME -2 -8 0 10 #fcfcfc
 #000000 #000000 0 1;
 #X obj 230 526 tgl 30 0 empty empty MUTE 35 7 0 10 #fcfcfc #000000
@@ -23,6 +23,7 @@
 #X obj 192 54 loop-controls 1;
 #X obj 312 54 loop-controls 2;
 #X obj 432 54 loop-controls 3;
+#X msg 163 316 all sec 3;
 #X connect 1 0 13 1;
 #X connect 1 1 13 2;
 #X connect 2 0 12 0;
@@ -45,3 +46,4 @@
 #X connect 16 0 14 0;
 #X connect 17 0 16 0;
 #X connect 17 1 13 0;
+#X connect 22 0 13 0;
