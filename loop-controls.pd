@@ -1,0 +1,48 @@
+#N canvas 542 116 483 760 12;
+#X obj 108 131 vsl 30 128 0.01 1.01 1 0 empty empty VOL 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 108 292 - 0.01;
+#X obj 148 232 tgl 30 0 empty empty MUTE 0 -10 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 108 676 s loop-control-message;
+#X obj 148 132 tgl 30 0 empty empty REC 0 -10 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 246 472 t b f;
+#X obj 198 422 t b f;
+#X msg 198 446 symbol play;
+#X msg 246 496 symbol rec;
+#X obj 148 368 t b f;
+#X msg 148 392 symbol mute;
+#X obj 108 316 t b f;
+#X msg 108 340 symbol vol;
+#X obj 108 534 pack s f, f 12;
+#X obj 108 558 t b a;
+#X obj 108 599 f \$1;
+#X obj 108 634 list append;
+#X obj 148 182 bng 30 250 50 0 empty empty Play 0 -10 0 10 #fcfcfc
+#000000 #000000;
+#X msg 198 227 1;
+#X connect 0 0 1 0;
+#X connect 1 0 11 0;
+#X connect 2 0 9 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 5 1 13 1;
+#X connect 6 0 7 0;
+#X connect 6 1 13 1;
+#X connect 7 0 13 0;
+#X connect 8 0 13 0;
+#X connect 9 0 10 0;
+#X connect 9 1 13 1;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 1;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 1;
+#X connect 15 0 16 0;
+#X connect 16 0 3 0;
+#X connect 17 0 18 0;
+#X connect 18 0 6 0;
+#X coords 0 -1 1 1 85 170 1 100 100;
