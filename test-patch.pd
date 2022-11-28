@@ -1,0 +1,8 @@
+#N canvas -1258 115 711 473 12;
+#X obj 60 72 pd-looper;
+#X obj 59 329 dac~;
+#X obj 61 15 adc~;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 2 0 0 0;
+#X connect 2 1 0 1;
