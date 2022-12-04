@@ -7,7 +7,7 @@
 #X obj 30 506 r loop-control-message;
 #X obj 30 559 unpack f;
 #X obj 30 530 t a a;
-#N canvas -986 306 713 576 bpm-handling 0;
+#N canvas 98 178 713 576 bpm-handling 1;
 #X floatatom 348 182 9 0 0 0 - - - 0;
 #X msg 348 285 all sec \$1;
 #X obj 348 158 expr (240 / $f1) * $f2;
@@ -19,51 +19,58 @@
 #X obj 435 52 t b f;
 #X obj 302 96 f;
 #X obj 302 122 t b f f;
-#N canvas 111 509 507 420 measure-counter 0;
+#N canvas 907 436 507 420 measure-counter 1;
 #X obj 135 113 metro;
 #X msg 47 185 1;
 #X obj 135 142 f 0;
 #X obj 191 123 + 1;
 #X obj 135 166 t f f f;
-#X floatatom 135 275 5 0 0 0 - - - 0;
+#X floatatom 135 245 5 0 0 0 - - - 0;
 #X obj 214 226 sel 1;
 #X msg 214 250 0;
 #X obj 214 202 > 14;
-#X obj 167 77 expr (15000 / $f1) * $f2;
 #X obj 47 148 r \$0-reset;
 #X obj 135 90 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X obj 167 30 inlet bpm;
-#X obj 332 30 inlet num-measures;
-#X obj 132 336 hradio 15 1 0 16 empty empty LOOP\\\ POSITION 0 -8 0
-10 #fcfcfc #000000 #000000 0;
+#X obj 135 362 hradio 15 1 0 16 empty empty LOOP\ POSITION 0 -8 0 10
+#fcfcfc #000000 #000000 0;
+#X obj 167 37 inlet seconds;
+#X msg 127 45 4;
+#X obj 167 77 expr ($f1 * 1000) / 16;
+#X obj 224 295 expr (15 - $f1);
+#X obj 224 322 s \$0-loop-pos-viewer-r;
 #X connect 0 0 2 0;
-#X connect 1 0 11 0;
+#X connect 1 0 10 0;
 #X connect 2 0 4 0;
 #X connect 3 0 2 1;
 #X connect 4 0 5 0;
 #X connect 4 1 8 0;
 #X connect 4 2 3 0;
+#X connect 5 0 11 0;
+#X connect 5 0 15 0;
 #X connect 6 0 7 0;
 #X connect 7 0 2 1;
 #X connect 8 0 6 0;
-#X connect 9 0 0 1;
-#X connect 10 0 7 0;
-#X connect 10 0 1 0;
-#X connect 11 0 0 0;
-#X connect 12 0 9 0;
-#X connect 13 0 9 1;
-#X restore 48 506 pd measure-counter;
-#X obj 169 363 phasor~ 1;
-#X msg 229 332 0;
-#X obj 169 256 swap 1;
-#X obj 169 280 /;
-#X floatatom 169 304 5 0 0 0 hz - - 0;
-#X obj 169 387 throw~ \$0-phasor;
-#X obj 229 300 r \$0-reset;
-#X obj 569 52 t b;
+#X connect 9 0 7 0;
+#X connect 9 0 1 0;
+#X connect 10 0 0 0;
+#X connect 12 0 14 0;
+#X connect 13 0 14 0;
+#X connect 14 0 0 1;
+#X connect 15 0 16 0;
+#X restore 130 302 pd measure-counter;
+#X obj 493 335 phasor~ 1;
+#X msg 553 304 0;
+#X obj 493 228 swap 1;
+#X obj 493 252 /;
+#X floatatom 493 276 5 0 0 0 hz - - 0;
+#X obj 493 359 throw~ \$0-phasor;
+#X obj 553 272 r \$0-reset;
+#X obj 569 52 t b b;
+#X obj 601 83 s \$0-reset;
 #X connect 0 0 1 0;
 #X connect 0 0 14 0;
+#X connect 0 0 11 0;
 #X connect 1 0 3 0;
 #X connect 2 0 0 0;
 #X connect 4 0 9 0;
@@ -82,6 +89,7 @@
 #X connect 16 0 12 0;
 #X connect 18 0 13 0;
 #X connect 19 0 9 0;
+#X connect 19 1 20 0;
 #X coords 0 576 1 575 250 60 0;
 #X restore 204 532 pd bpm-handling;
 #X f 36;
@@ -90,19 +98,19 @@
 #X obj 453 502 r \$0-reset-s;
 #X obj 328 502 r \$0-measures-s;
 #X obj 204 502 r \$0-bpm-s;
-#X obj 11 12 cnv 15 598 202 empty empty PD\\\ LOOPER 10 20 0 16 #e0e0e0
+#X obj 11 12 cnv 15 608 202 empty empty PD\ LOOPER 10 20 0 16 #e0e0e0
 #606060 0;
-#X obj 100 54 loop-controls 0;
-#X obj 185 54 loop-controls 1;
-#X obj 270 54 loop-controls 2;
-#X obj 355 54 loop-controls 3;
-#X floatatom 266 21 8 0 0 0 BPM \$0-bpm-r \$0-bpm-s 16;
-#X obj 577 21 bng 23 250 50 0 \$0-reset-s \$0-reset-r RESET -55 12
+#X obj 110 54 loop-controls 0;
+#X obj 195 54 loop-controls 1;
+#X obj 280 54 loop-controls 2;
+#X obj 365 54 loop-controls 3;
+#X floatatom 276 21 8 0 0 0 BPM \$0-bpm-r \$0-bpm-s 16;
+#X obj 587 21 bng 23 250 50 0 \$0-reset-s \$0-reset-r RESET -55 12
 0 16 #fcfcfc #000000 #000000;
-#X obj 411 21 hradio 23 1 0 4 \$0-measures-s \$0-measures-r BARS -43
+#X obj 421 21 hradio 23 1 0 4 \$0-measures-s \$0-measures-r BARS -43
 12 0 16 #fcfcfc #000000 #000000 0;
-#X obj 440 54 loop-controls 4;
-#X obj 525 54 loop-controls 5;
+#X obj 450 54 loop-controls 4;
+#X obj 535 54 loop-controls 5;
 #X obj 11 54 cnv 15 85 160 empty empty empty 20 12 0 14 #7c7c7c #404040
 0;
 #X obj 23 79 cnv 15 10 10 empty empty M 40 12 0 30 #e0e0e0 #ffffff
@@ -115,8 +123,8 @@
 #X obj 431 264 inlet~ in-right;
 #X obj 204 625 clone loop-instance 6 \$0;
 #X obj 58 176 tgl 30 0 \$0-bypass-s \$0-bypass-r BYPASS 0 -10 0 10
-#000000 #ffffff #000000 0 1;
-#X obj 260 557 catch~ \$0-audio-in-left;
+#ffffff #000000 #000000 0 1;
+#X obj 260 558 catch~ \$0-audio-in-left;
 #X obj 313 577 catch~ \$0-audio-in-right;
 #X obj 205 402 throw~ \$0-audio-in-left;
 #X obj 431 402 throw~ \$0-audio-in-right;
@@ -151,6 +159,8 @@
 #X connect 6 0 7 0;
 #X restore 641 14 pd gui-setup;
 #X obj 407 648 - 0.01;
+#X obj 100 54 vradio 10 1 0 16 \$0-loop-pos-viewer-s \$0-loop-pos-viewer-r
+empty 0 -8 0 10 #000000 #ffffff #000000 0;
 #X connect 0 0 45 0;
 #X connect 1 0 46 0;
 #X connect 2 0 0 1;
@@ -188,4 +198,4 @@
 #X connect 47 0 27 0;
 #X connect 48 0 28 0;
 #X connect 50 0 3 0;
-#X coords 0 -1 1 1 600 206 1 10 10;
+#X coords 0 -1 1 1 610 206 1 10 10;
