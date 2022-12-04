@@ -96,7 +96,7 @@
 #X obj 453 262 r \$0-reset-s;
 #X obj 328 262 r \$0-measures-s;
 #X obj 204 262 r \$0-bpm-s;
-#N canvas -1472 390 450 300 gui-colors 0;
+#N canvas 642 384 450 300 gui-colors 0;
 #X msg 146 157 color #ffffff #000000 #000000;
 #X obj 114 97 sel 1;
 #X msg 114 127 color #ffff00 #888800 #000000;

@@ -1,4 +1,4 @@
-#N canvas -1258 115 711 473 12;
+#N canvas 850 24 711 473 12;
 #X obj 60 72 pd-looper;
 #X obj 59 329 dac~;
 #X obj 61 15 adc~;

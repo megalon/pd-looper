@@ -1,4 +1,4 @@
-#N canvas -1420 256 950 544 12;
+#N canvas 0 256 950 544 12;
 #X obj 36 59 inlet messages;
 #X obj 257 61 inlet~ input-l;
 #X obj 257 270 tabwrite~ \$0-loop-l;
@@ -6,7 +6,7 @@
 #X obj 427 61 inlet~ input-r;
 #X msg 356 167 stop;
 #X obj 111 176 s \$0-sec;
-#N canvas -1125 460 393 279 setup-arrays 0;
+#N canvas 378 616 393 279 setup-arrays 1;
 #X obj 25 50 array define \$0-loop-r 48000;
 #X obj 25 31 array define \$0-loop-l 48000;
 #X floatatom 146 147 15 0 0 0 total\ samples - - 0;
