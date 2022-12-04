@@ -1,8 +1,8 @@
-#N canvas 882 36 767 910 12;
-#X obj 205 721 *~;
-#X obj 368 721 *~;
-#X obj 407 679 line~;
-#X msg 407 655 \$1 5;
+#N canvas 847 8 767 917 12;
+#X obj 205 741 *~;
+#X obj 368 741 *~;
+#X obj 407 699 line~;
+#X msg 407 675 \$1 5;
 #X msg 30 592 set \$1;
 #X obj 30 506 r loop-control-message;
 #X obj 30 559 unpack f;
@@ -109,29 +109,29 @@
 0;
 #X obj 18 75 vsl 30 128 0.01 1.01 1 0 \$0-volume-s \$0-volume-r MAIN
 0 -9 0 10 #ffffff #000000 #ffffff 0 1;
-#X obj 205 851 outlet~ left;
-#X obj 369 851 outlet~ right;
+#X obj 205 871 outlet~ left;
+#X obj 369 871 outlet~ right;
 #X obj 205 264 inlet~ in-left;
 #X obj 431 264 inlet~ in-right;
 #X obj 204 625 clone loop-instance 6 \$0;
 #X obj 58 176 tgl 30 0 \$0-bypass-s \$0-bypass-r BYPASS 0 -10 0 10
-#ffffff #000000 #000000 0 1;
+#000000 #ffffff #000000 0 1;
 #X obj 260 557 catch~ \$0-audio-in-left;
 #X obj 313 577 catch~ \$0-audio-in-right;
 #X obj 205 402 throw~ \$0-audio-in-left;
 #X obj 431 402 throw~ \$0-audio-in-right;
-#X obj 413 721 r \$0-bypass-s;
-#X obj 413 750 == 0;
+#X obj 413 741 r \$0-bypass-s;
+#X obj 413 770 == 0;
 #X obj 231 319 r \$0-bypass-s;
 #X obj 231 344 == 0;
 #X obj 206 373 *~ 1;
 #X obj 431 373 *~ 1;
 #X obj 441 293 throw~ \$0-audio-bypass-right;
 #X obj 215 293 throw~ \$0-audio-bypass-left;
-#X obj 205 778 *~ 1;
-#X obj 368 778 *~ 1;
-#X obj 224 810 catch~ \$0-audio-bypass-left;
-#X obj 448 810 catch~ \$0-audio-bypass-right;
+#X obj 205 798 *~ 1;
+#X obj 368 798 *~ 1;
+#X obj 224 830 catch~ \$0-audio-bypass-left;
+#X obj 448 830 catch~ \$0-audio-bypass-right;
 #N canvas 429 383 409 244 gui-setup 0;
 #X msg 69 118 color #ffffff #000000 #000000;
 #X obj 37 58 sel 1;
@@ -150,6 +150,7 @@
 #X connect 5 0 4 0;
 #X connect 6 0 7 0;
 #X restore 641 14 pd gui-setup;
+#X obj 407 648 - 0.01;
 #X connect 0 0 45 0;
 #X connect 1 0 46 0;
 #X connect 2 0 0 1;
@@ -162,7 +163,7 @@
 #X connect 7 1 31 0;
 #X connect 8 0 31 0;
 #X connect 9 0 31 3;
-#X connect 10 0 3 0;
+#X connect 10 0 50 0;
 #X connect 11 0 8 2;
 #X connect 12 0 8 1;
 #X connect 13 0 8 0;
@@ -186,4 +187,5 @@
 #X connect 46 0 28 0;
 #X connect 47 0 27 0;
 #X connect 48 0 28 0;
+#X connect 50 0 3 0;
 #X coords 0 -1 1 1 600 206 1 10 10;
