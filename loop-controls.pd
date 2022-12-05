@@ -1,7 +1,7 @@
 #N canvas 62 157 785 674 12;
 #X obj 105 326 - 0.01;
-#X obj 148 222 tgl 30 0 \$0-mute-s \$0-mute-r MUTE 0 -10 0 10 #ffffff
-#000000 #000000 0 1;
+#X obj 148 222 tgl 30 0 \$0-mute-s \$0-mute-r MUTE 0 -10 0 10 #ffff00
+#888800 #000000 0 1;
 #X obj 109 612 s loop-control-message;
 #X obj 148 172 tgl 30 0 \$0-rec-s \$0-rec-r REC 0 -10 0 10 #ffffff
 #000000 #000000 0 1;
@@ -16,14 +16,14 @@
 #X obj 109 535 f \$1;
 #X obj 109 570 list append;
 #X obj 123 130 tgl 15 0 \$0-hidden-toggle-s \$0-hidden-toggle-r \$1
-30 7 0 30 #fcfcfc #000000 #000000 0 1;
+30 7 0 30 #000000 #000000 #000000 0 1;
 #X obj 108 121 vsl 30 128 0.01 1.01 1 0 \$0-vol-s \$0-vol-r VOL 0 -9
 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 123 9 loadbang;
 #X obj 206 321 r \$0-mute-s;
 #X obj 304 322 r \$0-rec-s;
 #X obj 105 297 r \$0-vol-s;
-#N canvas 398 268 903 445 gui-colors 0;
+#N canvas 398 268 903 445 gui-colors 1;
 #X msg 395 231 color #ffffff #000000 #000000;
 #X obj 393 171 sel 1;
 #X msg 120 230 color #ffffff #000000 #000000;
@@ -38,13 +38,20 @@
 #X obj 242 288 s \$0-vol-r;
 #X msg 242 263 1;
 #X obj 158 33 inlet;
-#X msg 588 155 label \$1;
-#X obj 588 131 symbol \\\$1;
-#X msg 673 191 color #ffffff #000000 #000000;
-#X obj 671 131 sel 1;
-#X msg 671 161 color #ff0000 #880000 #000000;
-#X obj 647 229 s \$0-hidden-toggle-r;
+#X msg 587 93 label \$1;
+#X obj 587 69 symbol \\\$1;
+#X obj 657 285 s \$0-hidden-toggle-r;
 #X obj 158 63 t b b b b b;
+#X obj 694 34 r \$2-\$1-audio-indicator;
+#X msg 683 247 color #000000 #000000 #000000;
+#X msg 681 217 color #000000 #000000 #aaaaaa;
+#X msg 753 58 1, f 1;
+#X msg 733 58 0, f 1;
+#X obj 694 113 t b b b;
+#X obj 694 166 t b b;
+#X obj 694 89 spigot 1;
+#X obj 694 142 del 100;
+#X obj 694 190 del 100;
 #X connect 0 0 6 0;
 #X connect 1 0 5 0;
 #X connect 1 1 0 0;
@@ -57,22 +64,28 @@
 #X connect 9 0 3 0;
 #X connect 10 0 6 0;
 #X connect 12 0 11 0;
-#X connect 13 0 20 0;
-#X connect 14 0 19 0;
+#X connect 13 0 17 0;
+#X connect 14 0 16 0;
 #X connect 15 0 14 0;
-#X connect 16 0 19 0;
-#X connect 17 0 18 0;
-#X connect 17 1 16 0;
-#X connect 18 0 19 0;
-#X connect 20 0 2 0;
-#X connect 20 1 0 0;
-#X connect 20 2 10 0;
-#X connect 20 3 12 0;
-#X connect 20 4 15 0;
+#X connect 17 0 2 0;
+#X connect 17 1 0 0;
+#X connect 17 2 10 0;
+#X connect 17 3 12 0;
+#X connect 17 4 15 0;
+#X connect 18 0 25 0;
+#X connect 19 0 16 0;
+#X connect 20 0 16 0;
+#X connect 21 0 25 1;
+#X connect 22 0 25 1;
+#X connect 23 0 26 0;
+#X connect 23 1 20 0;
+#X connect 23 2 22 0;
+#X connect 24 0 27 0;
+#X connect 24 1 19 0;
+#X connect 25 0 23 0;
+#X connect 26 0 24 0;
+#X connect 27 0 21 0;
 #X restore 123 42 pd gui-colors;
-#X obj 170 72 r \$2-\$1-audio-indicator;
-#X obj 170 100 bng 15 250 50 0 empty empty empty 17 7 0 10 #dfdfdf
-#ffffff #000000;
 #X connect 0 0 8 0;
 #X connect 4 0 5 0;
 #X connect 4 1 10 1;
@@ -92,5 +105,4 @@
 #X connect 17 0 6 0;
 #X connect 18 0 4 0;
 #X connect 19 0 0 0;
-#X connect 21 0 22 0;
 #X coords 0 -1 1 1 85 160 2 100 100;
