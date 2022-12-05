@@ -1,4 +1,4 @@
-#N canvas 847 8 767 917 12;
+#N canvas 789 19 767 917 12;
 #X obj 205 741 *~;
 #X obj 368 741 *~;
 #X obj 407 699 line~;
@@ -32,8 +32,8 @@
 #X obj 47 148 r \$0-reset;
 #X obj 135 90 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X obj 135 362 hradio 15 1 0 16 empty empty LOOP\ POSITION 0 -8 0 10
-#fcfcfc #000000 #000000 0;
+#X obj 135 362 hradio 15 1 0 16 empty empty LOOP\\\ POSITION 0 -8 0
+10 #fcfcfc #000000 #000000 0;
 #X obj 167 37 inlet seconds;
 #X msg 127 45 4;
 #X obj 167 77 expr ($f1 * 1000) / 16;
@@ -68,6 +68,13 @@
 #X obj 553 272 r \$0-reset;
 #X obj 569 52 t b b;
 #X obj 601 83 s \$0-reset;
+#X obj 48 31 loadbang;
+#X msg 94 79 120;
+#X obj 94 103 s \$0-bpm-r;
+#X msg 71 128 0;
+#X obj 71 152 s \$0-measures-r;
+#X obj 48 55 t b b b;
+#X obj 48 188 s \$0-reset-r;
 #X connect 0 0 1 0;
 #X connect 0 0 14 0;
 #X connect 0 0 11 0;
@@ -90,6 +97,12 @@
 #X connect 18 0 13 0;
 #X connect 19 0 9 0;
 #X connect 19 1 20 0;
+#X connect 21 0 26 0;
+#X connect 22 0 23 0;
+#X connect 24 0 25 0;
+#X connect 26 0 27 0;
+#X connect 26 1 24 0;
+#X connect 26 2 22 0;
 #X coords 0 576 1 575 250 60 0;
 #X restore 204 532 pd bpm-handling;
 #X f 36;
@@ -98,7 +111,7 @@
 #X obj 453 502 r \$0-reset-s;
 #X obj 328 502 r \$0-measures-s;
 #X obj 204 502 r \$0-bpm-s;
-#X obj 11 12 cnv 15 608 202 empty empty PD\ LOOPER 10 20 0 16 #e0e0e0
+#X obj 11 12 cnv 15 608 202 empty empty PD\\\ LOOPER 10 20 0 16 #e0e0e0
 #606060 0;
 #X floatatom 276 21 8 0 0 0 BPM \$0-bpm-r \$0-bpm-s 16;
 #X obj 587 21 bng 23 250 50 0 \$0-reset-s \$0-reset-r RESET -55 12
